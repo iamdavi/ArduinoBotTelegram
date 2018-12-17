@@ -3,8 +3,16 @@ session_start();
  if (isset($_SESSION['nombreUsuario']) && $_SESSION['nombreUsuario'] != "") {
   include "funciones.php";
   $rfid = $_SESSION['rfidUsuario'];
-  $aulaEstatus = estadoAula($rfid);
   $idAula = $_GET['idAula'];
+
+  $qryGen = "select a.id_aula,a.descripcion,d.ip  from empleados e, permisos p, puertos pu, dispositivos d, aulas a where e.rfid=p.rfid and p.num_puertos=pu.num_puertos and p.ip=pu.ip and d.ip=pu.ip and a.ip=d.ip and e.rfid='$rfid' and a.id_aula='$idAula' group by a.id_aula;";
+  $resGen = mysqli_query($con,$qryGen);
+  $rowGen = mysqli_fetch_row($resGen);
+
+  $ip = $rowGen[2];
+
+
+  $aulaEstatus = estadoAula($rfid, $ip);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,6 +86,7 @@ session_start();
                   echo "El aula está ocupada.";
                 } elseif ($aulaEstatus == "success") {
                   echo "El aula está libre";
+                  echo $aulaEstatus;
                 }?>
               </h4>
             </div>

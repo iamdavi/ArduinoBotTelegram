@@ -21,13 +21,13 @@ function serv(){
 
 /*-- Visualizar el estado de un aula --*/
 
-function estadoAula($rfid){
+function estadoAula($rfid, $ip){
 
 	global $con;
 
 	/*Está ocupada por el*/
 
-	$qry = "SELECT * FROM registro_aula WHERE rfid='$rfid' and f_salida is null"; 
+	$qry = "SELECT * FROM registro_aula WHERE rfid='$rfid' and ip = '$ip' and f_salida is null"; 
 	$res = mysqli_query($con, $qry);
 	$num = mysqli_num_rows($res);
 
