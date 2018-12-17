@@ -6,14 +6,17 @@ main{
 .filaAula{
 	min-height: 50px;
 	margin-bottom: 16px;
-	opacity: 0;
+}
+.deshabilitado{
+  pointer-events: none;
+  opacity: 0.4;
 }
 .numAula{
 	padding: 4px;
 	padding-left: 6px;
 	padding-right: 6px;
 	min-height: 30px !important;
-	background-color: #5842f4;
+	background-color: #0d47a1;
 }
 .botonIr{
 	padding: .4rem .7rem;

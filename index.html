@@ -80,20 +80,22 @@
                   <hr>
                 </div>
                 <!--Body-->
-                <div class="md-form">
-                  <i class="fa fa-user prefix grey-text"></i>
-                  <input type="text" id="form3" class="form-control">
-                  <label for="form3">Nombre de usuario</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-lock prefix grey-text" aria-hidden="true"></i>
-                  <input type="password" id="form2" class="form-control">
-                  <label for="form2">Contraseña</label>
-                </div>
-                <!--Textarea with icon prefix-->
-                <div class="text-center mt-3">
-                  <button class="btn btn-primary">Entrar <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                </div>
+                <form method="post" action="php/inicio.php">
+                  <div class="md-form">
+                    <i class="fa fa-user prefix grey-text"></i>
+                    <input type="text" id="form3" class="form-control" name="nameUser">
+                    <label for="form3">Nombre de usuario</label>
+                  </div>
+                  <div class="md-form">
+                    <i class="fa fa-lock prefix grey-text" aria-hidden="true"></i>
+                    <input type="password" id="form2" class="form-control" name="passUser">
+                    <label for="form2">Contraseña</label>
+                  </div>
+                  <!--Textarea with icon prefix-->
+                  <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary" name="iniciarSesion">Entrar <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                  </div>
+                </form>
               </div>
             </div>
             <!--/.Form-->
