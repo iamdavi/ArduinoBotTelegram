@@ -47,9 +47,24 @@ function estadoAula($rfid){
 		return "primary"; /*Significa que el aula está OCUPADA POR ÉL MISMO*/
 	} elseif ($num2 == 1) {
 		return "danger"; /*Significa que el aula está OCUPADA POR OTRA PERSONA*/
-	} elseif ($num3 == 1) {
+	} else {
 		return "success"; /*Significa que el aula está libre.*/
 	}
+
+}
+
+/*-- Funcion que devuelve la descripción del numero de puerto --*/
+/*-- Se debe de usar en un bucle ya que el retur*/
+
+function descripcionPuerto($ip, $numP){
+
+	global $con;
+
+	$qryDescrip = "SELECT * from puertos where ip='$ip' and num_puertos='$numP'";
+    $resDescrip = mysqli_query($con, $qryDescrip);
+    $rowDescrip = mysqli_fetch_row($resDescrip);
+
+    return $rowDescrip;
 
 }
 

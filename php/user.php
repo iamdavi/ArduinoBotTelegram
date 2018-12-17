@@ -65,38 +65,56 @@ session_start();
             $qry = "select a.id_aula,a.descripcion,d.ip  from empleados e, permisos p, puertos pu, dispositivos d, aulas a where e.rfid=p.rfid and p.num_puertos=pu.num_puertos and p.ip=pu.ip and d.ip=pu.ip and a.ip=d.ip and e.rfid='$rfid' group by a.id_aula;";
             $res = mysqli_query($con,$qry); 
             while ( $row = mysqli_fetch_row($res) ) {
+              $idAula = $row[0];
               if (estadoAula($rfid) == "primary") { /*Si el aula está ocupada por el mismo...*/
-                
       ?> 
 
       <div class="row fuera filaAula primary-color align-items-center justify-content-md-center z-depth-2">
-        <div class="col-1"><span class="numAula z-depth-2"><?php echo $row[0]; ?></span></div>
+        <div class="col-1"><span class="numAula z-depth-2"><?php echo $idAula; ?></span></div>
         <div class="col-8 text-center text-truncate"><?php echo $row[1]; ?></div>
 
-        <div class='col-2 float-right'><a href="userAula.php" class='btn btn-info botonIr'><i class='fa fa-caret-right' aria-hidden='true'></i></a></div>
+        <div class='col-2 float-right'>
+          <?php 
+
+          echo "<a href='userAula.php?idAula=$idAula' class='btn btn-info botonIr'><i class='fa fa-caret-right' aria-hidden='true'></i></a>";
+
+           ?>
+        </div>
       </div>
 
       <!-- Estado de el aula -->
 
       <?php 
-              }elseif (estadoAula($rfid) == "danger") {
+       }elseif (estadoAula($rfid) == "danger") {
       ?> 
         <div class="row fuera filaAula deshabilitado primary-color align-items-center justify-content-md-center z-depth-2">
-        <div class="col-1"><span class="numAula z-depth-2"><?php echo $row[0]; ?></span></div>
+        <div class="col-1"><span class="numAula z-depth-2"><?php echo $idAula; ?></span></div>
         <div class="col-8 text-center text-truncate"><?php echo $row[1]; ?></div>
-          <div class='col-2 float-right'><a href="userAula.php" class='btn btn-danger botonIr'><i class='fa fa-caret-right' aria-hidden='true'></i></a></div>
+          <div class='col-2 float-right'>
+            <?php 
+
+            echo "<a href='userAula.php?idAula=$idAula' class='btn btn-danger botonIr'><i class='fa fa-caret-right' aria-hidden='true'></i></a>";
+
+             ?>
+          </div>
         </div>
         <?php 
-      } elseif (estadoAula($rfid) == "success"){?>
+          } elseif (estadoAula($rfid) == "success"){?>
 
         <div class="row fuera filaAula primary-color align-items-center justify-content-md-center z-depth-2">
-        <div class="col-1"><span class="numAula z-depth-2"><?php echo $row[0]; ?></span></div>
+        <div class="col-1"><span class="numAula z-depth-2"><?php echo $idAula; ?></span></div>
         <div class="col-8 text-center text-truncate"><?php echo $row[1]; ?></div>
-          <div class='col-2 float-right'><a href="userAula.php" class='btn btn-success botonIr'><i class='fa fa-caret-right' aria-hidden='true'></i></a></div>
+          <div class='col-2 float-right'>
+            <?php 
+
+            echo "<a href='userAula.php?idAula=$idAula' class='btn btn-success botonIr'><i class='fa fa-caret-right' aria-hidden='true'></i></a>";
+
+             ?>
+          </div>
         </div>
 
         <?php
-      } }
+         } }
 
 
           } else{

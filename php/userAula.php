@@ -4,6 +4,7 @@ session_start();
   include "funciones.php";
   $rfid = $_SESSION['rfidUsuario'];
   $aulaEstatus = estadoAula($rfid);
+  $idAula = $_GET['idAula'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,10 +36,10 @@ session_start();
             <div class="navbar-collapse collapse order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item text-sm-center active">
-                        <a class="nav-link text-center " href="#">Aulas</a>
+                        <a class="nav-link text-center " href="#!">Aulas</a>
                     </li>
                     <li class="nav-item text-sm-center">
-                        <a class="nav-link text-center" href="index.html">Salir</a>
+                        <a class="nav-link text-center" href="cerrarSesion.php">Salir</a>
                     </li>
                 </ul>
             </div>
@@ -48,8 +49,8 @@ session_start();
           <div class="row">
             <div class="navbar fixed-bottom navbar-dark">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item active"><a class="white-text" href="user.html">Aulas</a></li>
-                  <li class="breadcrumb-item active">Aula Nº XX</li>
+                  <li class="breadcrumb-item active"><a class="white-text" href="user.php">Aulas</a></li>
+                  <li class="breadcrumb-item active">Aula Nº <?php echo $idAula ?></li>
                 </ol>
             </div>
           </div>
@@ -70,7 +71,15 @@ session_start();
             </div>
 
             <div class="col-sm-12">
-              <h4 class="black-text">En este momento está dentro del aula.</h4>
+              <h4 class="black-text">
+                <?php if ($aulaEstatus == "primary"){
+                  echo "Está usted en el aula.";
+                } elseif ($aulaEstatus == "danger") {
+                  echo "El aula está ocupada.";
+                } elseif ($aulaEstatus == "success") {
+                  echo "El aula está libre";
+                }?>
+              </h4>
             </div>
 
       </div>
@@ -94,42 +103,46 @@ session_start();
                 <table class="table black-text">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Descripción</th>
-                      <th scope="col">Estado</th>
+                      <th scope="col-3">Nº de puerto</th>
+                      <th scope="col-6">Descripción</th>
+                      <th scope="col-3">Estado</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Encender luz</td>
-                      <td>
-                        <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider round"></span>
-                        </label>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Cerrar puerta</td>
-                      <td>
-                        <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider round"></span>
-                        </label>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Bajar persianas</td>
-                      <td>
-                        <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider round"></span>
-                        </label>
-                      </td>
-                    </tr>
+
+                    <?php 
+                      if (serv()) {
+
+                        $ipAula = "SELECT ip from aulas where id_aula = '$idAula'";
+                        $resIpAula = mysqli_query($con, $ipAula);
+                        $rowIpAula = mysqli_fetch_row($resIpAula);
+
+                        $numIpAula = $rowIpAula[0];
+
+                        $qry = "SELECT * from permisos WHERE rfid = '$rfid' and ip = '$numIpAula'";
+                        $res = mysqli_query($con, $qry);
+
+                        while ($row = mysqli_fetch_row($res)){
+                          echo "<tr>";
+                          echo "<th scope='row'>" . $row[1] . "</th>";
+
+                          $des = descripcionPuerto($row[0], $row[1]);
+
+                          echo "<td>" . $des[2] . "</td>";
+                          echo "<td>";
+                          echo "<label class='switch'>";
+                          echo "<input type='checkbox'>";
+                          echo "<span class='slider round'></span>";
+                          echo "</label>";
+                          echo "</td>";
+                          echo "</tr>";
+                        }
+
+                      }else {
+                         header('Location: ../html/fallo.html');
+                      }
+                     ?>
+
                   </tbody>
                 </table>
               </div>
