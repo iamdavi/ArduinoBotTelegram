@@ -33,7 +33,7 @@ function estadoAula($rfid, $ip){
 
 	/*Está ocupada por otros usuarios*/
 
-	$qry2 = "SELECT * FROM registro_aula WHERE rfid<>'$rfid' and ip = '$ip' and f_salida is null";
+	$qry2 = "SELECT * FROM registro_aula WHERE rfid<>'$rfid' and ip<>'$ip' and f_salida is null";
 	$res2 = mysqli_query($con, $qry2);
 	$num2 = mysqli_num_rows($res2);
 
