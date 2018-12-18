@@ -86,7 +86,6 @@ session_start();
                   echo "El aula está ocupada.";
                 } elseif ($aulaEstatus == "success") {
                   echo "El aula está libre";
-                  echo $aulaEstatus;
                 }?>
               </h4>
             </div>
