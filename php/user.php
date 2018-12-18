@@ -66,7 +66,7 @@ session_start();
             $res = mysqli_query($con,$qry); 
             while ( $row = mysqli_fetch_row($res) ) {
               $idAula = $row[0];
-              if (estadoAula($rfid, $row[2]) == "primary") { /*Si el aula está ocupada por el mismo...*/
+              if (estadoAula($rfid) == "primary") { /*Si el aula está ocupada por el mismo...*/
       ?> 
 
       <div class="row fuera filaAula primary-color align-items-center justify-content-md-center z-depth-2">
@@ -85,7 +85,7 @@ session_start();
       <!-- Estado de el aula -->
 
       <?php 
-       }elseif (estadoAula($rfid, $row[2]) == "danger") {
+       }elseif (estadoAula($rfid) == "danger") {
       ?> 
         <div class="row fuera filaAula deshabilitado primary-color align-items-center justify-content-md-center z-depth-2">
         <div class="col-1"><span class="numAula z-depth-2"><?php echo $idAula; ?></span></div>
@@ -99,7 +99,7 @@ session_start();
           </div>
         </div>
         <?php 
-          } elseif (estadoAula($rfid, $row[2]) == "success"){?>
+          } elseif (estadoAula($rfid) == "success"){?>
 
         <div class="row fuera filaAula primary-color align-items-center justify-content-md-center z-depth-2">
         <div class="col-1"><span class="numAula z-depth-2"><?php echo $idAula; ?></span></div>
