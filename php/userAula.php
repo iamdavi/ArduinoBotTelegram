@@ -117,8 +117,9 @@ session_start();
                     </tr>
                   </thead>
                   <tbody>
-
+                    <form method="POST" action="mandos.php">
                     <?php 
+
                       if (serv()) {
 
                         $ipAula = "SELECT ip from aulas where id_aula = '$idAula'";
@@ -135,12 +136,14 @@ session_start();
                           echo "<th scope='row'>" . $row[1] . "</th>";
 
                           $des = descripcionPuerto($row[0], $row[1]);
-
+                          /* --> $des[3] muestra el estado del puerto*/
+                          $stripped = str_replace(' ', '', $des[3]);
+                          echo $stripped;
                           echo "<td>" . $des[2] . "</td>";
                           echo "<td>";
                           echo "<label class='switch'>";
-                          echo "<input type='checkbox'>";
-                          echo "<span class='slider round'></span>";
+                          echo "<input type='checkbox' name='check_list[]' value='" . $row[0] . "-" . $row[1] . "' class='asd'>";
+                          echo "<span class='slider" . $stripped . " round parajs'></span>";
                           echo "</label>";
                           echo "</td>";
                           echo "</tr>";
@@ -152,10 +155,21 @@ session_start();
                      ?>
 
                   </tbody>
+
                 </table>
               </div>
             </div>
       </div>
+
+      <div id="af" class="row z-depth-2 alert alert-warning alert-dismissible show" role="alert" style="display: none;">
+        <div>
+          <strong>Estás seguro de que quieres modificar el estado del puerto:</strong>
+          <br>
+          <button class="btn btn-outline-info btn-sm waves-effect" type="submit">Sí</button>
+
+        </div>
+      </div>
+    </form>
 
     </div>
   </main>
@@ -169,6 +183,20 @@ session_start();
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="../js/mdb.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('.asd').change(function(){
+      if($(this).prop("checked")) {
+        $('#af').fadeIn("slow");
+      } else {
+        $('#af').fadeOut("slow");
+      }
+    });
+
+  });
+</script>
 
 </body>
 </html>

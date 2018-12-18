@@ -32,6 +32,10 @@ div.navbar{
 	margin-bottom: 40px;
 	border-radius: 2px;
 }
+.envioMando{
+  border-radius: 2px;
+  padding: 8px;
+}
 .iconSection{
 	padding: 8px;
 	padding-right: 16px !important;
@@ -56,7 +60,8 @@ div.navbar{
   height: 0;
 }
 
-.slider {
+/* Slider apagado */
+.slider0 {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -67,8 +72,7 @@ div.navbar{
   -webkit-transition: .4s;
   transition: .4s;
 }
-
-.slider:before {
+.slider0:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -80,22 +84,61 @@ div.navbar{
   transition: .4s;
 }
 
-input:checked + .slider {
+input:checked + .slider0 {
   background-color: #33b5e5;
 }
 
-input:checked + .slider:before {
+input:checked + .slider0:before {
   -webkit-transform: translateX(14px);
   -ms-transform: translateX(14px);
   transform: translateX(14px);
   background-color: #4285F4;
 }
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
+/* Slider encendido */
+.slider1 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #33b5e5;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider1:before {
+  position: absolute;
+  content: "";
+  height: 26px; 
+  width: 26px;
+  right: 0px;
+  bottom: -6px;
+  background-color: #4285F4;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-.slider.round:before {
+input:checked + .slider1 {
+  background-color: #ccc;
+}
+
+input:checked + .slider1:before {
+  -webkit-transform: translateX(-14px);
+  -ms-transform: translateX(-14px);
+  transform: translateX(-14px);
+  background-color: grey;
+}
+
+/* Rounded sliders */
+.slider0.round {
+  border-radius: 34px;
+}
+.slider0.round:before {
+  border-radius: 50%;
+}
+.slider1.round {
+  border-radius: 34px;
+}
+.slider1.round:before {
   border-radius: 50%;
 }

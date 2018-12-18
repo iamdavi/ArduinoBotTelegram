@@ -6,6 +6,7 @@ $ipCon = "10.14.2.175";
 $userCon = "root3";
 $passCon = "root";
 $dbCon = "proyecto1";
+
 $con = mysqli_connect($ipCon, $userCon, $passCon, $dbCon);
 
 function serv(){ 
@@ -59,6 +60,38 @@ function descripcionPuerto($ip, $numP){
     $rowDescrip = mysqli_fetch_row($resDescrip);
 
     return $rowDescrip;
+
+}
+
+function puerto($ip, $numPuerto){
+
+	global $con;
+
+	$sql = "SELECT estado from puertos where ip='$ip' and num_puertos='$numPuerto'";
+	$res = mysqli_query($con, $sql);
+	$row = mysqli_fetch_row($res);
+
+	if ($row[0] == 0) {
+
+		$encender = "UPDATE puertos set estado = 1 where ip='$ip' and num_puertos='$numPuerto'";
+		$encenderRes = mysqli_query($con,$encender);
+		if ($encenderRes) {
+			header('Location: user.php');
+		} else {
+			echo "Ha ocurrido un error al insertar el cambio";
+		}
+
+	} elseif ($row[0] == 1) {
+		
+		$apagar = "UPDATE puertos set estado = 0 where ip='$ip' and num_puertos='$numPuerto'";
+		$apagarRes = mysqli_query($con,$apagar);
+		if ($apagarRes) {
+			header('Location: user.php');
+		} else {
+			echo "Ha ocurrido un error al insertar el cambio";
+		}
+
+	}
 
 }
 
