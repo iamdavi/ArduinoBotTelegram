@@ -149,3 +149,9 @@
 footer{
   background-color: #0d47a1 !important;
 }
+
+.logoStyle{
+  font-family: monserrat;
+  letter-spacing: 10px;
+  font-weight: -100px;
+}

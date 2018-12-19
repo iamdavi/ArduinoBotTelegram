@@ -22,8 +22,8 @@
     <!--Navbar-->
       <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <strong>DisConSeg</strong>
+      <a class="navbar-brand logoStyle" href="#">
+        BITACCESS
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
         aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,14 +53,19 @@
     <div class="container-fluid">
       <div class="row align-items-center seccion1 jarallax">
         <div class="container">
-          <div class="row" id="top-section">           
+          <div class="row wow fadeInDown" data-wow-delay="0.3s" id="top-section">           
             <div class="col-12">
-              <h1 class="display-6 text-white text-center tituloSeccion">¿Qué es DisConSeg?</h1>
+              <h1 class="display-6 text-white text-center tituloSeccion">¿Qué es <span class="logoStyle">BITACCESS</span>?</h1>
                 <div class="row align-items-center">
                   <div class="col-md-8 col-sm-12 section">
-                    <h3 class="green-text text-center subtituloSeccion">Dispositivo de control y seguimiento <i class="fa fa-map-marker" aria-hidden="true"></i></h3>
+                    <h3 class="green-text text-center subtituloSeccion">Dispositivo de control de acceso <i class="fa fa-map-marker" aria-hidden="true"></i></h3>
                     <p class="text-white">
-                      Mauris sollicitudin vehicula elit nec porta. Morbi in auctor ligula, maximus blandit ligula. Mauris laoreet dapibus vulputate. Morbi congue tempor turpis, sit amet eleifend dolor dapibus non. Curabitur pretium pulvinar placerat. Fusce varius, lectus a eleifend bibendum, nunc augue lacinia sem, eget lobortis diam leo ornare eros. Vestibulum interdum justo id venenatis tristique. In hac habitasse platea dictumst.
+                      Controlamos el acceso a las distintas estancias dentro de tu empresa.
+                    </p>
+
+                    <p class="text-white">
+
+                      Queremos aliminar el sistema clásico de acceso mediante llave e implantar una nueva tecnología que permita entrar a zonas a través del smartfone.
                     </p>
                   </div>
                   <div class="col-md-4 col-sm-12">
@@ -80,13 +85,17 @@
                 <div class="row align-items-center">
 
                   <div class="col-md-4 col-sm-12">
-                    <img src="../img/lock.jpg" class="img-fluid rounded z-depth-3" alt="Responsive image">
+                    <img src="../img/smartBlue.jpeg" class="img-fluid rounded z-depth-3" alt="Responsive image">
                   </div>
 
                   <div class="col-md-8 col-sm-12 section">
                     <h3 class="blue-text text-center subtituloSeccion">Gracias a la tecnología bluetooth <i class="fa fa-bluetooth-b" aria-hidden="true"></i></h3>
                     <p class="text-white">
-                      Mauris sollicitudin vehicula elit nec porta. Morbi in auctor ligula, maximus blandit ligula. Mauris laoreet dapibus vulputate. Morbi congue tempor turpis, sit amet eleifend dolor dapibus non. Curabitur pretium pulvinar placerat. Fusce varius, lectus a eleifend bibendum, nunc augue lacinia sem, eget lobortis diam leo ornare eros. Vestibulum interdum justo id venenatis tristique. In hac habitasse platea dictumst.
+                      Todo esto lo podemos conseguir gracias a la tecnología <strong>BLE</strong> (<STRONG>B</STRONG>luetooth <strong>L</strong>ow <strong>E</strong>nergy).
+                    </p>
+
+                    <p class="text-white">
+                      Lo que nos permite esta tecnología es controlar la intensidad de señal de dispositivos <span class="blue-text">bluetooth</span>. Con dicha intensidad somos capaces de saber cuando un usuario desea entrar en alguna zona.
                     </p>
                   </div>
 
@@ -230,7 +239,7 @@
 
           <!-- Content -->
           <h5 class="text-uppercase">Ayudanos a mejorar</h5>
-          <p>Envíanos tus peticiones a través de correo electrónico pinchando <a href="contact.html" class="font-weight-bold">aquí</a>.</p>
+          <p class="mt-4">Envíanos tus peticiones a través de correo electrónico pinchando <a href="contact.html" class="font-weight-bold">aquí</a>.</p>
 
         </div>
         <!-- Grid column -->
@@ -268,7 +277,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="../index.html"> DisConSeg.com</a>
+      <a href="../index.html"> bitaccess.com</a>
     </div>
     <!-- Copyright -->
 
@@ -288,8 +297,9 @@
   <script src="../js/particles.js"></script>
   <script src="../js/particulas.js"></script>
 
+  <script>
+    new WOW().init();
+  </script>
+
 </body>
-
-
-
 </html>
