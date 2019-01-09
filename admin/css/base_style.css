@@ -1,0 +1,42 @@
+.menu{
+	background-color: #252525;
+	padding: 0px !important;
+	height: 100vh !important;
+}
+.top_nav_admin{
+	background-color: #676767;
+	min-height: 200px;
+	max-height: 200px;
+}
+.mid_nav_admin{
+	padding: 12px;
+}
+.lista_mid_mav_admin{
+	list-style: none;
+	padding: 0;
+}
+.lista_mid_mav_admin > a {
+	color: white;
+}
+.flecha_icono{
+	float: right;
+	transform: translateX(-18px);
+	margin-top: 2px;
+}
+.lista_mid_mav_admin > a > li:hover{
+	background-color: #676767;
+	transition: all .4s ease-in-out;
+}
+.lista_mid_mav_admin > a > li:hover > .flecha_icono{
+	transform: translateX(-10px);
+	transition: all .4s ease-in-out;
+}
+.lista_mid_mav_admin > a > li{
+	padding: 8px;
+}
+.content{
+	padding: 32px;
+}
+.secciones{
+	background-color: red;
+}

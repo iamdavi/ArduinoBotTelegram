@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Administrador</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="../../css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="../css/base_style.css" rel="stylesheet">
+</head>
+
+    <body>
+
+    	<header>
+	        <div class="container-fluid">
+	          <div class="row">
+				<div class="col-md-2 col-sm-12 menu">
+
+					<div class="view top_nav_admin">
+						<img src="../../img/papers.jpg" class="img-fluid" alt="placeholder">
+						<div class="mask flex-center waves-effect waves-light rgba-black-strong">
+							<h3 class="white-text">Administrador</h3>
+						</div>
+					</div>
+
+					<div class="mid_nav_admin">
+						<h3 class="white-text">Menú</h3>
+						<ul class="white-text lista_mid_mav_admin">
+							<a href="#!"><li>Usuarios<i class="fas fa-angle-right flecha_icono"></i></li></a>
+
+							<a href="#!"><li>Aulas<i class="fas fa-angle-right flecha_icono"></i></li></a>
+
+							<a href="#!"><li>Permisos<i class="fas fa-angle-right flecha_icono"></i></li></a>
+
+							<a href="#!"><li>Dispositivos<i class="fas fa-angle-right flecha_icono"></i></li></a>
+						</ul>
+					</div>
+					
+				</div>
+				<div class="col-md-9 col-sm-12 content">
+					<h1>¡Bienvenido a la Administración!</h1>
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-6 secciones">
+								Section 1
+							</div>
+							<div class="col-sm-6 secciones">
+								Seccition 2
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 secciones">
+								Section 3
+							</div>
+							<div class="col-sm-6 secciones">
+								Seccition 4 
+							</div>
+						</div>
+					</div>
+				</div>
+	          </div>
+	        </div>
+	    </header>
+    
+	</body>
+
+    <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="../../js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="../../js/mdb.min.js"></script>
+
+	<script type="text/javascript">
+		$( document ).ready(function() {
+			$("lista_mid_mav_admin").children().each(function(){
+				$(this).hover(function(){
+					$( this ).fadeOut( 100 );
+				})
+			})
+		});
+	</script>
+
+</body>
+</html>
