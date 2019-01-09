@@ -55,13 +55,13 @@
   background-size: cover;
 }
 .user1{
-  background-image: url('../img/usu1.jpg');
+  background-image: url('../img/broncano.jpg');
 }
 .user2{
-  background-image: url('../img/usu2.jpg');
+  background-image: url('../img/queque.jpg');
 }
 .user3{
-  background-image: url('../img/usu3.jpg');
+  background-image: url('../img/ignatius.jpg');
 }
 .seccion1{
   min-height: 100vh !important;
